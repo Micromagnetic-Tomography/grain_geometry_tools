@@ -7,7 +7,7 @@ from typing import Union
 
 def generate_grain_vertices(cuboids: np.ndarray) -> np.ndarray:
     """
-    Generate grain vertices from a Numpy array containing at leats 6 columns
+    Generate grain vertices from a Numpy array containing at least 6 columns
 
     Parameters
     ----------
@@ -40,13 +40,31 @@ def generate_grain_geometries(cuboids: np.ndarray,
     Parameters
     ----------
     cuboids
+        An N x 6 array with: x y z dx dy dz index
     grain_vertices
+        Vertices from an eye bird perspective generated with the
+        `generate_grain_vertices` function
     cuboid_idxs
+        Optional array with
     cuboid_idxs_unique
+        Optional array with unique indices of the particles to be processed,
+        e.g. if all the particles are required, use `np.unique(cuboids[:, 6])`
+        or if only a small group is needed you can use a mask or a reduced
+        array such as `np.array([1, 3, 7, 10])`. If not passed, the function
+        computes all possible particle geometries.
     polygon_buffer
+        Tolerance to merge geometries using a `buffer` parameter, as specified
+        in `shapely`
+    generate_centroids
+        If True, the function generates a dictionary with particle indices as
+        keys and centroid coordinates as values
 
     Returns
     -------
+    - A tuple of: (list with grain geometries, dict with geometry coordinates)
+    Or
+    - A tuple of: (list with grain geometries, dict with geometry coordinates,
+                   dict with centroid coordinates)
 
     """
     # TODO: In Python >3.9 we can be more specific about the types returned:
