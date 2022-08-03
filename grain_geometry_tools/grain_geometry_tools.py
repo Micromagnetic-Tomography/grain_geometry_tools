@@ -83,10 +83,13 @@ def generate_grain_geometries(cuboids: np.ndarray,
         # Here we join all the polygons. The buffer is necessary to remove
         # odd looking lines appearing within a shape/polygon
         grain_geoms.append(
-            sho.unary_union([shg.Polygon(pt.exterior).buffer(polygon_buffer,
-                                                             cap_style=3,
-                                                             join_style=shg.JOIN_STYLE.mitre)
-                             for pt in polygons]))
+            sho.unary_union(
+                [shg.Polygon(pt.exterior).buffer(
+                    polygon_buffer, cap_style=3,
+                    join_style=shg.JOIN_STYLE.mitre)
+                 for pt in polygons]
+            )
+        )
 
     # Now get the coordinates of every grain geometry. If we have a
     # Multipolygon, we get the coordinates from separate entities

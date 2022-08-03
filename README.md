@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 # Grain Geometry Tools
 
 This separate library will be used to process the geometry of cuboids from text
