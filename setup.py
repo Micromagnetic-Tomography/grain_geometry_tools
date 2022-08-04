@@ -8,7 +8,7 @@ with open('README.md') as f:
 
 setuptools.setup(
     name='grain_geometry_tools',
-    version='1.0',
+    version='1.1',
     description=('Python lib to process grain geometries from cuboid files'),
     long_description=long_description,
     long_description_content_type='text/markdown',
