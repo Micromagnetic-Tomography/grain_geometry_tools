@@ -105,7 +105,7 @@ def generate_grain_geometries(cuboids: np.ndarray,
 
         if pg.type == 'MultiPolygon':
             grain_geoms_coords[idx] = np.empty((0, 2))
-            for pol in pg:
+            for pol in pg.geoms:
                 coords = pol.exterior.coords.xy
                 grain_geoms_coords[idx] = np.vstack(
                     (grain_geoms_coords[idx],
