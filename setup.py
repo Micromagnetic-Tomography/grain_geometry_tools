@@ -14,7 +14,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     author='D. Cortés-Ortuño, F. Out, M. Kosters, K. Fabian, L. V. de Groot',
     author_email='d.i.cortes@uu.nl',
-    packages=setuptools.find_packages(),
+    py_modules=['grain_geometry_tools'],
     install_requires=['numpy',
                       'scipy',
                       'pathlib',
