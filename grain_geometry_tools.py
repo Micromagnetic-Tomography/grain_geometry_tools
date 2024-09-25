@@ -103,7 +103,7 @@ def generate_grain_geometries(cuboids: np.ndarray,
             grainc = pg.representative_point().xy
             grain_centroids[idx] = np.array(grainc).reshape(-1)
 
-        if pg.type == 'MultiPolygon':
+        if pg.geom_type == 'MultiPolygon':
             grain_geoms_coords[idx] = np.empty((0, 2))
             for pol in pg.geoms:
                 coords = pol.exterior.coords.xy
